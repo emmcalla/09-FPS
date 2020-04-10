@@ -11,8 +11,15 @@ var mouse_range = 1.2
 var jump = 10
 var jumping = false
 
+var health = 100
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func take_damage(d):
+	health -= d
+	if health <= 0:
+		queue_free()
 
 func get_input():
 	var input_dir = Vector3()
